@@ -1,8 +1,32 @@
 <html>
     <head>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+        <script>
+            function submitForm() {
+                var number = $('#numberOfItems').val();
+                var price = $('#price').val();
+                var total = number * price;
 
+                $('#result').html(total);
+            }
+
+            $('document').on('ready', function() {
+                $('#submitButton').on('click', submitForm);
+            })
+        </script>
     </head>
     <body>
-        Hello World
+        Price Calculator
+
+        <form>
+            <label>Number of items <input id="numberOfItems"></label>
+            <label>Price per item <input id="price"></label>
+
+            <button id="submitButton" type="button" onClick="submitForm()">
+                Submit
+            </button>
+        </form>
+
+        <div id="result"></div>
     </body>
 </html>
